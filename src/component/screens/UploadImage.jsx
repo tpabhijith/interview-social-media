@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../includes/Button";
 import LadyAnime from "../../images/female-anime.png";
 import MediaIcon from "../../images/media-symbol.png";
+import Rectangle from "../../images/Rectangle.png";
 import { data, userDetails } from "../data/commentdatas";
 
 function UploadImage({ setData }) {
@@ -57,6 +58,7 @@ function UploadImage({ setData }) {
                 </Anime>
                 <Media>
                     <MediaImg src={MediaIcon} alt="media" />
+                    <RectangleImage src={Rectangle} alt="rect" />
                 </Media>
             </Container>
             <FormContainer>
@@ -133,6 +135,14 @@ const Media = styled.div`
 const MediaImg = styled.img`
     object-fit: contain;
     height: 100%;
+`;
+
+const RectangleImage = styled.img`
+    /* object-fit: contain; */
+    position: absolute;
+    width: 80%;
+    left: 10px;
+    bottom: 10px;
 `;
 const FormContainer = styled.div`
     background: #fff;
