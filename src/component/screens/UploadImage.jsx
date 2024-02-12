@@ -75,15 +75,22 @@ function UploadImage({ setData }) {
                             })
                         }
                     >
-                        <label>Choose your Photo</label>
-                        <input type="file" onChange={handleFileChange} />
-                        <label>Write a comment</label>
-                        <textarea
+                        <PhotoLabel for="files">Choose your Photo</PhotoLabel>
+                        <PhotoInput
+                            type="file"
+                            id="files"
+                            onChange={handleFileChange}
+                        />
+                        <MessageLabel>Write a comment</MessageLabel>
+                        <MessageText
                             placeholder="description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
-                        <button type="submit">submit</button>
+                        <ButtonContainer>
+                            <CancelButton>Cancel</CancelButton>
+                            <SubmitButton type="submit">submit</SubmitButton>
+                        </ButtonContainer>
                     </UploadForm>
                 )}
             </FormContainer>
@@ -147,4 +154,54 @@ const UploadForm = styled.form`
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
 `;
+
+const PhotoLabel = styled.label`
+    cursor: pointer;
+    padding: 12px 24px;
+    border: 1px solid #c08c5d;
+    border-radius: 8px;
+`;
+const PhotoInput = styled.input`
+    border: 1px solid #c08c5d;
+    width: 500px;
+    border-radius: 8px;
+    display: none;
+`;
+const MessageLabel = styled.label`
+    font-size: 18px;
+`;
+const MessageText = styled.textarea`
+    width: 500px;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #c08c5d;
+    border-radius: 8px;
+`;
+const SubmitButton = styled.button`
+    padding: 12px 24px;
+    height: 45px;
+    border-radius: 30px;
+    background: #c08c5d;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+`;
+const CancelButton = styled.button`
+    padding: 12px 24px;
+    height: 45px;
+    border-radius: 30px;
+    background: #c08c5d;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+`;
+
+const ButtonContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+`;
+
 export default UploadImage;
